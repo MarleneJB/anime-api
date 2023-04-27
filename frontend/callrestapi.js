@@ -11,9 +11,9 @@ function postAnime(){
     var myGeneros = $('#generos').val();
     var myEstudio = $('#estudio').val();
     var myImage= $('#image').val();
-        var mygato ={
+        var myanime={
             name : myName,
-            attack : mySinopsis,
+            sinopsis : mySinopsis,
             episodios : myEpisodios,
             temporadas : myTemporadas,
             estado : myEstado,
@@ -21,7 +21,7 @@ function postAnime(){
             estudio : myEstudio,
             image : myImage 
         };
-        console.log(mygato);
+        console.log(myanime);
 
         $.ajax({
             url: url,
@@ -56,15 +56,20 @@ function getAnimes(){
 
             arrAnimes.forEach(function(item){
                 console.log(item);
-                htmlTableAnimes += '<tr>' +
-                '<td>' + item.id + '<td>'+
-                '<td>' + item.name + '<td>'+
-                '<td>' + item.sinopsis + '<td>'+
-                '<td>' + item.episodios+ '<td>'+
-                '<td>' + item.temporadas+ '<td>'+
-                '<td>' + item.estado + '<td>'+
-                '<td>' + item.generos + '<td>'+
-                '<td>' + item.estudio + '<td>'+
+                htmlTableAnimes += '<Animes>' +
+                '<div class="Animes__header">' +
+                '<h2 class="Animes__name">' + item.name + '</h2>' +
+            '</div>' +
+            '<div class="Animes__body">' +
+                '<table>' +
+                '<tr><td>id:</td><td>' + item.id + '<td></tr>'+
+                '<tr><td>Name:</td><td>' + item.name + '<td>'+
+                '<tr><td>Sinopsisis:</td><td>' + item.sinopsis + '<td>'+
+                '<tr><td>Episodios</td><td>' + item.episodios+ '<td>'+
+                '<tr><td>Temporadas:</td><td>' + item.temporadas+ '<td>'+
+                '<tr><td>Estado:</td><td>' + item.estado + '<td>'+
+                '<tr><td>Generos:</td><td>' + item.generos + '<td>'+
+                '<tr><td>Estudio:</td><td>' + item.estudio + '<td>'+
                
             '</table>' +
         '</div>' +

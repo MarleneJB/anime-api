@@ -24,6 +24,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Anime',
-  });
+  })
   return Anime;
 };
