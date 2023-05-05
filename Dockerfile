@@ -1,17 +1,13 @@
-FROM debian:jessie
+FROM debian:bullseye
 
 RUN apt-get update
-
 RUN apt-get install -y curl make g++
-
-RUN curl -sL https//deb.nodesource.com/setup_10.x
+RUN curl -sL http://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 
-ADD package.json /package.json
-RUN npm install 
+ADD . /
 
-WORKDIR /src
+RUN npm install
+EXPOSE 8080
 
-EXPOSE 3500
-
-CMD ["node", "/src/index.js"]
+CMD ["node", "index.js"]
